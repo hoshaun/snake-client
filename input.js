@@ -9,7 +9,8 @@ const setupInput = function(conn) {
   stdin.resume();
   stdin.on("data", (key) => {
     connection.write(`Move: ${handleUserInput(key)}`);
-    connection.write('Name: SHO');
+    connection.write('Name: SHO: ');
+    connection.write('Say: I AM SNEK');
   });
   return stdin;
 };
