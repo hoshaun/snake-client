@@ -1,3 +1,5 @@
+const { PLAYER_NAME, MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, MOVE_DOWN_KEY } = require("./constants");
+
 // Stores the active TCP connection object.
 let connection;
 
@@ -9,23 +11,23 @@ const setupInput = function(conn) {
   stdin.resume();
   stdin.on("data", (key) => {
     connection.write(`Move: ${handleUserInput(key)}`);
-    connection.write('Name: SHO: ');
+    connection.write(`Name: ${PLAYER_NAME}: `);
     connection.write('Say: I AM SNEK');
   });
   return stdin;
 };
 
 const handleUserInput = function(key) {
-  if (key === 'w') {
+  if (key === MOVE_UP_KEY) {
     return 'up';
   }
-  if (key === 'a') {
+  if (key === MOVE_LEFT_KEY) {
     return 'left';
   }
-  if (key === 's') {
+  if (key === MOVE_DOWN_KEY) {
     return 'down';
   }
-  if (key === 'd') {
+  if (key === MOVE_RIGHT_KEY) {
     return 'right';
   }
   if (key === '\u0003') {
